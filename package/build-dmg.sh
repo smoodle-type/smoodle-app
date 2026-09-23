@@ -53,9 +53,9 @@ ln -s "/Applications" "${STAGING}/Applications"
 # v0.0.8b+: bundle Smoodle Config.app alongside Smoodle.app.
 # Asset is published by smoodle/.github/workflows/build-config-app.yml on
 # tag `config-app-v*`. Tag pinned via SMOODLE_CONFIG_APP_TAG env (default:
-# the v0.0.8b release). Setting SMOODLE_CONFIG_APP_TAG=skip disables this
+# the v0.0.8b.3 release). Setting SMOODLE_CONFIG_APP_TAG=skip disables this
 # block for local-dev DMGs that don't need Config.app.
-CONFIG_APP_TAG="${SMOODLE_CONFIG_APP_TAG:-config-app-v0.0.8b}"
+CONFIG_APP_TAG="${SMOODLE_CONFIG_APP_TAG:-config-app-v0.0.8b.3}"
 if [ "${CONFIG_APP_TAG}" = "skip" ]; then
     echo "  Smoodle Config.app: SKIPPED (SMOODLE_CONFIG_APP_TAG=skip)"
 else
@@ -123,7 +123,7 @@ Uninstall
 1. System Settings → Keyboard → Input Sources → select Smoodle → click "−"
 2. sudo rm -rf "/Library/Input Methods/Smoodle.app"
 3. rm -rf "/Applications/Smoodle Config.app"   # if installed
-4. rm -rf ~/Library/Rime/Smoodle    # optional: remove user dictionary cache
+4. rm -rf ~/Library/Rime/Smoodle    # optional: removes your custom words and learned history
 
 Source: https://github.com/smoodle-type/smoodle-app
 README
