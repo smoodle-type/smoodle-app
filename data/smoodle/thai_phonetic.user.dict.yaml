@@ -1,0 +1,11 @@
+# Rime user dictionary
+#
+# Empty fallback for Smoodle custom words, bundled with Smoodle.app so the
+# thai_phonetic.extended dictionary always compiles. Your words live in
+# ~/Library/Rime/Smoodle/thai_phonetic.user.dict.yaml (Smoodle Config.app,
+# Words tab); that file takes precedence once it exists.
+---
+name: thai_phonetic.user
+version: "1"
+sort: by_weight
+...

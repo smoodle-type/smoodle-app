@@ -17,7 +17,10 @@ test -f "${project_file}"
 anchor=(83 84 thai_phonetic.dict.yaml)
 anchor_lib=()  # no working anchor; smoodle does not bundle rime plugins (yet)
 
-lastid=88  # next free 441E63XX id after 83/84/85/86/87/88 (default.custom.yaml)
+# next free 441E63XX id after 83..88 (vendored schema + default.custom.yaml) and
+# 89..94 (data/smoodle: extended dict, schema patch, user dict template —
+# wired by hand in pbxproj, see action-build.sh).
+lastid=94
 
 require_anchor_present() {
     local file="$1"

@@ -1,0 +1,29 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# Smoodle.app distribution dictionary: smoodle's Thai phonetic vocabulary
+# plus the user's custom words. Selected by thai_phonetic.custom.yaml
+# (translator/dictionary), so vendor/smoodle/schema stays unchanged and the
+# legacy Squirrel/Weasel/ibus installers are unaffected.
+#
+#   thai_phonetic       base vocabulary (vendor/smoodle/schema)
+#   thai_phonetic.user  custom words: ~/Library/Rime/Smoodle/
+#                       thai_phonetic.user.dict.yaml, written by Smoodle
+#                       Config.app. Rime falls back to the empty template
+#                       bundled next to this file until that file exists.
+#
+# Learned-word history keeps its userdb name: Rime derives user_dict
+# "thai_phonetic" from dictionary "thai_phonetic.extended".
+
+---
+name: thai_phonetic.extended
+version: "0.0.8b.3"
+sort: by_weight
+use_preset_vocabulary: false
+import_tables:
+  - thai_phonetic
+  - thai_phonetic.user
+encoder:
+  exclude_patterns:
+    - '^[^\x00-\x7f]+$'
+...

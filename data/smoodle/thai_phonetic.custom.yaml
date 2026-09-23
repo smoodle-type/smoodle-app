@@ -1,0 +1,8 @@
+# Smoodle.app: build the thai_phonetic schema against thai_phonetic.extended
+# (base vocabulary + custom words from Smoodle Config.app).
+#
+# Rime reads this bundled patch only while ~/Library/Rime/Smoodle has no
+# thai_phonetic.custom.yaml of its own. A copy there must keep this line,
+# or custom words stop loading.
+patch:
+  translator/dictionary: thai_phonetic.extended

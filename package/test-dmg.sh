@@ -11,8 +11,10 @@
 #   5. Smoodle.app/Contents/Info.plist SUPublicEDKey matches package/Sparkle-public-key.txt
 #   6. Smoodle.app/Contents/Frameworks/librime.1.dylib contains 'sorted_initial_' symbol (peek-sort patch)
 #   7. <dmg>.sig exists alongside the DMG (Sparkle EdDSA signature)
-#
-# For v0.0.8b: also check Smoodle Config.app present at mount root.
+#   8. SharedSupport carries the custom-word layering (thai_phonetic.custom.yaml
+#      → thai_phonetic.extended + user dict template) and default.custom.yaml
+#      lists only schemas the bundle ships
+#   9. Smoodle Config.app present at mount root (v0.0.8b+)
 
 set -uo pipefail
 
@@ -120,6 +122,44 @@ if [ ! -s "$SIG" ]; then
   exit 1
 fi
 echo "  ✓ Sparkle EdDSA signature present at $SIG"
+
+# 8. Rime data. thai_phonetic.custom.yaml switches the schema to
+#    thai_phonetic.extended, which imports the user's custom words
+#    (thai_phonetic.user); the bundled empty template is Rime's fallback until
+#    ~/Library/Rime/Smoodle has one — a missing import fails the whole
+#    dictionary compile. Listing a schema the bundle does not ship makes every
+#    deploy report failure.
+SHARED="$MOUNT/Smoodle.app/Contents/SharedSupport"
+for f in thai_phonetic.schema.yaml thai_phonetic.dict.yaml thai_phonetic.extended.dict.yaml \
+         thai_phonetic.user.dict.yaml thai_phonetic.custom.yaml default.custom.yaml; do
+  if [ ! -f "$SHARED/$f" ]; then
+    echo "FAIL: SharedSupport/$f missing (not wired into Copy Shared Support Files?)"
+    exit 1
+  fi
+done
+if ! grep -Eq '^[[:space:]]*translator/dictionary:[[:space:]]*thai_phonetic\.extended[[:space:]]*$' "$SHARED/thai_phonetic.custom.yaml"; then
+  echo "FAIL: thai_phonetic.custom.yaml does not select thai_phonetic.extended"
+  exit 1
+fi
+SCHEMAS=$(sed -n 's/^[[:space:]]*-[[:space:]]*schema:[[:space:]]*\([A-Za-z0-9_.]*\).*/\1/p' "$SHARED/default.custom.yaml")
+if [ -z "$SCHEMAS" ]; then
+  echo "FAIL: default.custom.yaml lists no schemas"
+  exit 1
+fi
+for s in $SCHEMAS; do
+  if [ ! -f "$SHARED/$s.schema.yaml" ]; then
+    echo "FAIL: default.custom.yaml lists '$s' but SharedSupport has no $s.schema.yaml"
+    exit 1
+  fi
+done
+echo "  ✓ SharedSupport loads custom words; schema list: $(echo $SCHEMAS)"
+
+# 9. Smoodle Config.app
+if [ ! -d "$MOUNT/Smoodle Config.app" ]; then
+  echo "FAIL: Smoodle Config.app not found at DMG root"
+  exit 1
+fi
+echo "  ✓ Smoodle Config.app present"
 
 echo
 echo "=== ALL CHECKS PASS ==="

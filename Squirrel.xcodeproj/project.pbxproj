@@ -10,6 +10,9 @@
 		441E638322B7E96F006DCCDD /* thai_phonetic.dict.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 441E638422B7E90C006DCCDD /* thai_phonetic.dict.yaml */; };
 		441E638522B7E96F006DCCDD /* thai_phonetic.schema.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 441E638622B7E90C006DCCDD /* thai_phonetic.schema.yaml */; };
 		441E638722B7E96F006DCCDD /* default.custom.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 441E638822B7E90C006DCCDD /* default.custom.yaml */; };
+		441E638922B7E96F006DCCDD /* thai_phonetic.extended.dict.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 441E639022B7E90C006DCCDD /* thai_phonetic.extended.dict.yaml */; };
+		441E639122B7E96F006DCCDD /* thai_phonetic.custom.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 441E639222B7E90C006DCCDD /* thai_phonetic.custom.yaml */; };
+		441E639322B7E96F006DCCDD /* thai_phonetic.user.dict.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 441E639422B7E90C006DCCDD /* thai_phonetic.user.dict.yaml */; };
 		442B5B881570C37200370DEA /* squirrel.yaml in Copy Shared Support Files */ = {isa = PBXBuildFile; fileRef = 442B5B871570C37200370DEA /* squirrel.yaml */; };
 		442C64921F7A410A0027EFBE /* rime-install in CopyFiles */ = {isa = PBXBuildFile; fileRef = 442C64901F7A404A0027EFBE /* rime-install */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		446C01D71F767BD400A6C23E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446C01D61F767BD400A6C23E /* Assets.xcassets */; };
@@ -128,6 +131,9 @@
 				441E638322B7E96F006DCCDD /* thai_phonetic.dict.yaml in Copy Shared Support Files */,
 				441E638522B7E96F006DCCDD /* thai_phonetic.schema.yaml in Copy Shared Support Files */,
 				441E638722B7E96F006DCCDD /* default.custom.yaml in Copy Shared Support Files */,
+				441E638922B7E96F006DCCDD /* thai_phonetic.extended.dict.yaml in Copy Shared Support Files */,
+				441E639122B7E96F006DCCDD /* thai_phonetic.custom.yaml in Copy Shared Support Files */,
+				441E639322B7E96F006DCCDD /* thai_phonetic.user.dict.yaml in Copy Shared Support Files */,
 				44AEBC7521F569FD00344375 /* key_bindings.yaml in Copy Shared Support Files */,
 				44AEBC7621F569FD00344375 /* punctuation.yaml in Copy Shared Support Files */,
 				7B5488AF1D2DACDF0056A1BE /* default.yaml in Copy Shared Support Files */,
@@ -168,7 +174,10 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		441E638422B7E90C006DCCDD /* thai_phonetic.dict.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = thai_phonetic.dict.yaml; path = data/plum/thai_phonetic.dict.yaml; sourceTree = "<group>"; };
 		441E638622B7E90C006DCCDD /* thai_phonetic.schema.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = thai_phonetic.schema.yaml; path = data/plum/thai_phonetic.schema.yaml; sourceTree = "<group>"; };
-		441E638822B7E90C006DCCDD /* default.custom.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default.custom.yaml; path = data/plum/default.custom.yaml; sourceTree = "<group>"; };
+		441E638822B7E90C006DCCDD /* default.custom.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default.custom.yaml; path = data/smoodle/default.custom.yaml; sourceTree = "<group>"; };
+		441E639022B7E90C006DCCDD /* thai_phonetic.extended.dict.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = thai_phonetic.extended.dict.yaml; path = data/smoodle/thai_phonetic.extended.dict.yaml; sourceTree = "<group>"; };
+		441E639222B7E90C006DCCDD /* thai_phonetic.custom.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = thai_phonetic.custom.yaml; path = data/smoodle/thai_phonetic.custom.yaml; sourceTree = "<group>"; };
+		441E639422B7E90C006DCCDD /* thai_phonetic.user.dict.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = thai_phonetic.user.dict.yaml; path = data/smoodle/thai_phonetic.user.dict.yaml; sourceTree = "<group>"; };
 		442B5B871570C37200370DEA /* squirrel.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = squirrel.yaml; path = data/squirrel.yaml; sourceTree = "<group>"; };
 		442C64901F7A404A0027EFBE /* rime-install */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "rime-install"; path = "bin/rime-install"; sourceTree = "<group>"; };
 		446C01D61F767BD400A6C23E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -397,6 +406,9 @@
 				441E638422B7E90C006DCCDD /* thai_phonetic.dict.yaml */,
 				441E638622B7E90C006DCCDD /* thai_phonetic.schema.yaml */,
 				441E638822B7E90C006DCCDD /* default.custom.yaml */,
+				441E639022B7E90C006DCCDD /* thai_phonetic.extended.dict.yaml */,
+				441E639222B7E90C006DCCDD /* thai_phonetic.custom.yaml */,
+				441E639422B7E90C006DCCDD /* thai_phonetic.user.dict.yaml */,
 				7B5488211D2DAAD10056A1BE /* default.yaml */,
 				7B5488291D2DAAD10056A1BE /* essay.txt */,
 				44AEBC7221F569CF00344375 /* key_bindings.yaml */,

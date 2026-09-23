@@ -27,7 +27,9 @@ jobs:
           set -e
           # Fail if data/plum/ has any tracked smoodle schema files (they're
           # gitignored at top-level .gitignore — appearance means someone
-          # added a !negation rule or hand-committed).
+          # added a !negation rule or hand-committed). default.custom.yaml is
+          # app-owned since v0.0.8b.3 (data/smoodle/) and must not reappear
+          # in data/plum/.
           for f in thai_phonetic.schema.yaml thai_phonetic.dict.yaml default.custom.yaml; do
             if git ls-files --error-unmatch "data/plum/$f" 2>/dev/null; then
               echo "DRIFT: data/plum/$f is tracked but should be gitignored"
@@ -40,7 +42,7 @@ jobs:
           # No-op pre-build (data/plum/ empty); fires if a post-build hook is
           # added later.
           git submodule update --init vendor/smoodle
-          for f in thai_phonetic.schema.yaml thai_phonetic.dict.yaml default.custom.yaml; do
+          for f in thai_phonetic.schema.yaml thai_phonetic.dict.yaml; do
             src="vendor/smoodle/schema/$f"
             dst="data/plum/$f"
             if [ -f "$dst" ] && ! cmp -s "$src" "$dst"; then

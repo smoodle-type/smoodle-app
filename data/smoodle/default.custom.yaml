@@ -1,0 +1,8 @@
+# Smoodle.app schema list. Smoodle.app bundles exactly one schema; listing
+# schemas it does not ship makes every deploy report failure.
+#
+# The legacy Squirrel/Weasel/ibus installers keep using smoodle's
+# schema/default.custom.yaml, which also lists the host's stock schemas.
+patch:
+  schema_list:
+    - schema: thai_phonetic
